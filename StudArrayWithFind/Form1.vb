@@ -76,7 +76,7 @@
         txtGender.Text = ""
         txtAvMk.Text = ""
         txtPhone.Text = ""
-        chkPaid.Text = False
+        chkPaid.Checked = False
 
         displayList()
     End Sub
