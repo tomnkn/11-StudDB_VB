@@ -38,9 +38,10 @@ Partial Class Form1
         Me.Label8 = New System.Windows.Forms.Label()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.chkPaid = New System.Windows.Forms.CheckBox()
-        Me.txtPhone = New System.Windows.Forms.MaskedTextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txtDOB = New System.Windows.Forms.DateTimePicker()
+        Me.btnFindStud = New System.Windows.Forms.Button()
+        Me.txtPhone = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'txtFirstName
@@ -127,7 +128,7 @@ Partial Class Form1
         '
         'btnAddStud
         '
-        Me.btnAddStud.Location = New System.Drawing.Point(456, 127)
+        Me.btnAddStud.Location = New System.Drawing.Point(465, 125)
         Me.btnAddStud.Name = "btnAddStud"
         Me.btnAddStud.Size = New System.Drawing.Size(104, 23)
         Me.btnAddStud.TabIndex = 9
@@ -166,14 +167,6 @@ Partial Class Form1
         Me.chkPaid.Text = "Paid"
         Me.chkPaid.UseVisualStyleBackColor = True
         '
-        'txtPhone
-        '
-        Me.txtPhone.Location = New System.Drawing.Point(251, 131)
-        Me.txtPhone.Mask = "(999) 000-0000"
-        Me.txtPhone.Name = "txtPhone"
-        Me.txtPhone.Size = New System.Drawing.Size(100, 20)
-        Me.txtPhone.TabIndex = 7
-        '
         'Label7
         '
         Me.Label7.AutoSize = True
@@ -193,14 +186,31 @@ Partial Class Form1
         Me.txtDOB.TabIndex = 19
         Me.txtDOB.Value = New Date(2003, 1, 1, 0, 0, 0, 0)
         '
+        'btnFindStud
+        '
+        Me.btnFindStud.Location = New System.Drawing.Point(465, 154)
+        Me.btnFindStud.Name = "btnFindStud"
+        Me.btnFindStud.Size = New System.Drawing.Size(104, 23)
+        Me.btnFindStud.TabIndex = 20
+        Me.btnFindStud.Text = "Find Student"
+        Me.btnFindStud.UseVisualStyleBackColor = True
+        '
+        'txtPhone
+        '
+        Me.txtPhone.Location = New System.Drawing.Point(248, 131)
+        Me.txtPhone.Name = "txtPhone"
+        Me.txtPhone.Size = New System.Drawing.Size(100, 20)
+        Me.txtPhone.TabIndex = 21
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(611, 391)
+        Me.Controls.Add(Me.txtPhone)
+        Me.Controls.Add(Me.btnFindStud)
         Me.Controls.Add(Me.txtDOB)
         Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.txtPhone)
         Me.Controls.Add(Me.chkPaid)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.lstStud)
@@ -216,7 +226,7 @@ Partial Class Form1
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtFirstName)
         Me.Name = "Form1"
-        Me.Text = "v1.7.2"
+        Me.Text = "v1.8.0 FindStudent"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -239,7 +249,8 @@ Partial Class Form1
     Friend WithEvents Label8 As Label
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
     Friend WithEvents chkPaid As CheckBox
-    Friend WithEvents txtPhone As MaskedTextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents txtDOB As DateTimePicker
+    Friend WithEvents btnFindStud As Button
+    Friend WithEvents txtPhone As TextBox
 End Class

@@ -1,4 +1,4 @@
-﻿'Tom Nguyen 1.7.2 Improved design and validation
+﻿'Tom Nguyen 1.8.0 Added FindStudent button!!! Note: cannot find students through DoB in this version!
 Public Class Form1
     'set up a record or "class" for a student
     Class STUDENT
@@ -54,14 +54,14 @@ Public Class Form1
         'VALIDATION:'
         'Validate if anything has been inputted in the "First Name" box:'
         If txtFirstName.Text = "" Then
-            MsgBox("Please enter a 'first name'.", MsgBoxStyle.Exclamation, "Go to the First Name field and input a name, please!")
+            MsgBox("Please enter a 'first name'.", MsgBoxStyle.Exclamation, "Input First Name!")
             txtFirstName.Focus()
             Exit Sub
         End If
 
         'Validate that name is less than 20 characters'
         If Len(txtFirstName.Text) > 20 Then
-            MsgBox("Please enter a 'first name' less than 20 characters.", MsgBoxStyle.Exclamation, "Go to the First Name field and input a proper name, please!")
+            MsgBox("Please enter a 'first name' less than 20 characters.", MsgBoxStyle.Exclamation, "Input a valid first name!")
             txtFirstName.Focus()
             Exit Sub
         End If
@@ -69,21 +69,21 @@ Public Class Form1
 
         'Validate if anything has been inputted in the "Last Name" box:'
         If txtLastName.Text = "" Then
-            MsgBox("Please enter a 'last name'.", MsgBoxStyle.Exclamation, "Go to the Last Name field and input a name, please!")
+            MsgBox("Please enter a 'last name'.", MsgBoxStyle.Exclamation, "Input Last Name!")
             txtLastName.Focus()
             Exit Sub
         End If
 
         'Validate that name is less than 20 characters'
         If Len(txtLastName.Text) > 20 Then
-            MsgBox("Please enter a 'last name' less than 20 characters.", MsgBoxStyle.Exclamation, "Go to the Last Name field and input a proper name, please!")
+            MsgBox("Please enter a 'last name' less than 20 characters.", MsgBoxStyle.Exclamation, "Input a valid last name!")
             txtLastName.Focus()
             Exit Sub
         End If
 
         'Validate if actual DoB:'
         If Not IsDate(txtDOB.Text) Then
-            MsgBox("Please enter in a DoB between 1960 and 2010 in the format of 'd/mm/yy'", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+            MsgBox("Please select a DoB between 1960 and 2020 in the format of 'd/mm/yy'", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
             txtDOB.Focus()
             Exit Sub
         End If
@@ -96,13 +96,13 @@ Public Class Form1
         End If
 
         If Not IsNumeric(txtAvMk.Text) Then
-            MsgBox("Please enter an 'average mark' (between 0-100).", MsgBoxStyle.Exclamation, "Go to the Average Mark field and input a mark, please!")
+            MsgBox("Please enter an 'average mark' between 0-100.", MsgBoxStyle.Exclamation, "Input an average mark!")
             txtAvMk.Focus()
             Exit Sub
         End If
 
         If Not Len(Trim(txtPhone.Text)) = 10 Then
-            MsgBox("Please enter 10 digits for the phone number", MsgBoxStyle.Exclamation, "Check Phone Number field (10 digits)")
+            MsgBox("Please enter a valid 10 digit phone number", MsgBoxStyle.Exclamation, "Check Phone Number field (10 digits)")
             txtPhone.Focus()
             Exit Sub
         End If
@@ -126,6 +126,8 @@ Public Class Form1
         txtPhone.Text = ""
         chkPaid.Text = "Paid"
         displayList()
+
+        txtFirstName.Focus()
     End Sub
     Private Sub displayList()
         'clear the list box as it keeps the earlier loop
@@ -138,11 +140,34 @@ Public Class Form1
         Next
     End Sub
 
+    Private Sub btnFindStud_Click(sender As Object, e As EventArgs) Handles btnFindStud.Click
+        If txtLastName.Text = "" Then
+            MsgBox("Please enter a 'Last Name' to search", MsgBoxStyle.Exclamation, "Add search name to 'Last Name'.")
+            Exit Sub
+        End If
+        Dim foundName = False
+        Dim searchCount As Integer = 0
+        While searchCount < studentCount And foundName = False
+            If students(searchCount).lastname = txtLastName.Text Then
+                foundName = True
+            Else
+                searchCount = searchCount + 1
+            End If
+        End While
+        If foundName Then
+            lstStud.Items.Add("Your student is " & students(searchCount).firstname &
+                              " - " & students(searchCount).lastname & " - " & students(searchCount).DOB &
+                              " - " & students(searchCount).gender & " - " & students(searchCount).avMk & ".")
+        Else
+            lstStud.Items.Add("This student cannot be found! ")
+        End If
+    End Sub
+
     Private Sub lstStud_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstStud.SelectedIndexChanged
 
     End Sub
 
-    Private Sub txtPhone_TextChanged(sender As Object, e As EventArgs) Handles txtPhone.TextChanged
+    Private Sub txtPhone_TextChanged(sender As Object, e As EventArgs)
 
     End Sub
 
@@ -186,11 +211,5 @@ Public Class Form1
 
     End Sub
 
-    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
-
-    End Sub
-
-    Private Sub Label6_Click(sender As Object, e As EventArgs) Handles Label6.Click
-
-    End Sub
 End Class
+
