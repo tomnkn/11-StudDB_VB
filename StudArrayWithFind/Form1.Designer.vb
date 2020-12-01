@@ -201,6 +201,7 @@ Partial Class Form1
         Me.txtPhone.Name = "txtPhone"
         Me.txtPhone.Size = New System.Drawing.Size(100, 20)
         Me.txtPhone.TabIndex = 21
+        Me.txtPhone.Text = " "
         '
         'Form1
         '
@@ -226,7 +227,7 @@ Partial Class Form1
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtFirstName)
         Me.Name = "Form1"
-        Me.Text = "v1.8.0 FindStudent"
+        Me.Text = "v1.8.1"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

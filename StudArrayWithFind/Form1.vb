@@ -1,4 +1,4 @@
-﻿'Tom Nguyen 1.8.0 Added FindStudent button!!! Note: cannot find students through DoB in this version!
+﻿'Tom Nguyen v1.8.1 Fixed AvgMk validation
 Public Class Form1
     'set up a record or "class" for a student
     Class STUDENT
@@ -95,7 +95,7 @@ Public Class Form1
             Exit Sub
         End If
 
-        If Not IsNumeric(txtAvMk.Text) Then
+        If Not IsNumeric(txtAvMk.Text) Or (txtAvMk.Text) > 100 Or (txtAvMk.Text) < 0 Then
             MsgBox("Please enter an 'average mark' between 0-100.", MsgBoxStyle.Exclamation, "Input an average mark!")
             txtAvMk.Focus()
             Exit Sub
