@@ -213,7 +213,7 @@ Partial Class Form1
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtFirstName)
         Me.Name = "Form1"
-        Me.Text = "v1.7.0"
+        Me.Text = "v1.7.1"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
