@@ -40,6 +40,7 @@ Partial Class Form1
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.chkPaid = New System.Windows.Forms.CheckBox()
         Me.txtPhone = New System.Windows.Forms.MaskedTextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'txtFirstName
@@ -133,7 +134,7 @@ Partial Class Form1
         '
         'btnAddStud
         '
-        Me.btnAddStud.Location = New System.Drawing.Point(39, 129)
+        Me.btnAddStud.Location = New System.Drawing.Point(456, 127)
         Me.btnAddStud.Name = "btnAddStud"
         Me.btnAddStud.Size = New System.Drawing.Size(104, 23)
         Me.btnAddStud.TabIndex = 9
@@ -165,7 +166,7 @@ Partial Class Form1
         'chkPaid
         '
         Me.chkPaid.AutoSize = True
-        Me.chkPaid.Location = New System.Drawing.Point(357, 111)
+        Me.chkPaid.Location = New System.Drawing.Point(407, 131)
         Me.chkPaid.Name = "chkPaid"
         Me.chkPaid.Size = New System.Drawing.Size(47, 17)
         Me.chkPaid.TabIndex = 8
@@ -174,17 +175,27 @@ Partial Class Form1
         '
         'txtPhone
         '
-        Me.txtPhone.Location = New System.Drawing.Point(248, 109)
+        Me.txtPhone.Location = New System.Drawing.Point(36, 131)
         Me.txtPhone.Mask = "(999) 000-0000"
         Me.txtPhone.Name = "txtPhone"
         Me.txtPhone.Size = New System.Drawing.Size(100, 20)
         Me.txtPhone.TabIndex = 7
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(36, 115)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(78, 13)
+        Me.Label7.TabIndex = 18
+        Me.Label7.Text = "Phone Number"
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(611, 391)
+        Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.txtPhone)
         Me.Controls.Add(Me.chkPaid)
         Me.Controls.Add(Me.Label8)
@@ -202,7 +213,7 @@ Partial Class Form1
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtFirstName)
         Me.Name = "Form1"
-        Me.Text = "v1.6.1"
+        Me.Text = "v1.7.0"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -227,4 +238,5 @@ Partial Class Form1
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
     Friend WithEvents chkPaid As CheckBox
     Friend WithEvents txtPhone As MaskedTextBox
+    Friend WithEvents Label7 As Label
 End Class
