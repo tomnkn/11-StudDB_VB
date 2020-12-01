@@ -1,4 +1,4 @@
-﻿'Tom Nguyen v1.7.1 validation added for all entry boxes
+﻿'Tom Nguyen 1.7.2 Improved design and validation
 Public Class Form1
     'set up a record or "class" for a student
     Class STUDENT
@@ -14,7 +14,6 @@ Public Class Form1
     Dim studentCount As Integer = 0
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'allocate memory
         For i = 0 To 9
             students(i) = New STUDENT
         Next
@@ -55,20 +54,35 @@ Public Class Form1
         'VALIDATION:'
         'Validate if anything has been inputted in the "First Name" box:'
         If txtFirstName.Text = "" Then
-            MessageBox.Show("Please enter a 'first name'.", "Go to the First Name field and input a name, please!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+            MsgBox("Please enter a 'first name'.", MsgBoxStyle.Exclamation, "Go to the First Name field and input a name, please!")
             txtFirstName.Focus()
             Exit Sub
         End If
 
+        'Validate that name is less than 20 characters'
+        If Len(txtFirstName.Text) > 20 Then
+            MsgBox("Please enter a 'first name' less than 20 characters.", MsgBoxStyle.Exclamation, "Go to the First Name field and input a proper name, please!")
+            txtFirstName.Focus()
+            Exit Sub
+        End If
+
+
         'Validate if anything has been inputted in the "Last Name" box:'
         If txtLastName.Text = "" Then
-            MessageBox.Show("Please enter a 'last name'.", "Go to the Last Name field and input a name, please!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+            MsgBox("Please enter a 'last name'.", MsgBoxStyle.Exclamation, "Go to the Last Name field and input a name, please!")
+            txtLastName.Focus()
+            Exit Sub
+        End If
+
+        'Validate that name is less than 20 characters'
+        If Len(txtLastName.Text) > 20 Then
+            MsgBox("Please enter a 'last name' less than 20 characters.", MsgBoxStyle.Exclamation, "Go to the Last Name field and input a proper name, please!")
             txtLastName.Focus()
             Exit Sub
         End If
 
         'Validate if actual DoB:'
-        If Not (txtDOB.Text >= #1/1/1998# AndAlso txtDOB.Text < #1/1/2005#) Then
+        If Not IsDate(txtDOB.Text) Then
             MsgBox("Please enter in a DoB between 1960 and 2010 in the format of 'd/mm/yy'", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
             txtDOB.Focus()
             Exit Sub
@@ -82,7 +96,7 @@ Public Class Form1
         End If
 
         If Not IsNumeric(txtAvMk.Text) Then
-            MessageBox.Show("Please enter an 'average mark' (between 0-100).", "Go to the Average Mark field and input a mark, please!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+            MsgBox("Please enter an 'average mark' (between 0-100).", MsgBoxStyle.Exclamation, "Go to the Average Mark field and input a mark, please!")
             txtAvMk.Focus()
             Exit Sub
         End If
@@ -110,7 +124,7 @@ Public Class Form1
         txtGender.Text = ""
         txtAvMk.Text = ""
         txtPhone.Text = ""
-        chkPaid.Text = False
+        chkPaid.Text = "Paid"
         displayList()
     End Sub
     Private Sub displayList()
@@ -136,11 +150,11 @@ Public Class Form1
 
     End Sub
 
-    Private Sub txtLastName_TextChanged(sender As Object, e As EventArgs) Handles txtLastName.TextChanged
+    Private Sub txtLastName_TextChanged(sender As Object, e As EventArgs) Handles txtLastName.Validating
 
     End Sub
 
-    Private Sub txtDOB_TextChanged(sender As Object, e As EventArgs) Handles txtDOB.TextChanged
+    Private Sub txtDOB_TextChanged(sender As Object, e As EventArgs)
 
     End Sub
 
@@ -156,7 +170,27 @@ Public Class Form1
 
     End Sub
 
+    Private Sub Label7_Click(sender As Object, e As EventArgs) Handles Label7.Click
+
+    End Sub
+
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
+
+    End Sub
+
+    Private Sub TextBox1_TextChanged_1(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
+
+    End Sub
+
+    Private Sub Label6_Click(sender As Object, e As EventArgs) Handles Label6.Click
 
     End Sub
 End Class

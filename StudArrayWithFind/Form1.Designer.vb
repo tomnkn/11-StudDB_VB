@@ -29,7 +29,6 @@ Partial Class Form1
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtLastName = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.txtDOB = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtGender = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -41,6 +40,7 @@ Partial Class Form1
         Me.chkPaid = New System.Windows.Forms.CheckBox()
         Me.txtPhone = New System.Windows.Forms.MaskedTextBox()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.txtDOB = New System.Windows.Forms.DateTimePicker()
         Me.SuspendLayout()
         '
         'txtFirstName
@@ -93,17 +93,10 @@ Partial Class Form1
         Me.Label4.TabIndex = 6
         Me.Label4.Text = "Date of Birth"
         '
-        'txtDOB
-        '
-        Me.txtDOB.Location = New System.Drawing.Point(248, 83)
-        Me.txtDOB.Name = "txtDOB"
-        Me.txtDOB.Size = New System.Drawing.Size(100, 20)
-        Me.txtDOB.TabIndex = 4
-        '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(354, 64)
+        Me.Label5.Location = New System.Drawing.Point(36, 115)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(42, 13)
         Me.Label5.TabIndex = 8
@@ -111,7 +104,7 @@ Partial Class Form1
         '
         'txtGender
         '
-        Me.txtGender.Location = New System.Drawing.Point(354, 83)
+        Me.txtGender.Location = New System.Drawing.Point(36, 131)
         Me.txtGender.Name = "txtGender"
         Me.txtGender.Size = New System.Drawing.Size(100, 20)
         Me.txtGender.TabIndex = 5
@@ -119,7 +112,7 @@ Partial Class Form1
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(460, 64)
+        Me.Label6.Location = New System.Drawing.Point(142, 115)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(65, 13)
         Me.Label6.TabIndex = 10
@@ -127,7 +120,7 @@ Partial Class Form1
         '
         'txtAvMk
         '
-        Me.txtAvMk.Location = New System.Drawing.Point(460, 83)
+        Me.txtAvMk.Location = New System.Drawing.Point(142, 131)
         Me.txtAvMk.Name = "txtAvMk"
         Me.txtAvMk.Size = New System.Drawing.Size(100, 20)
         Me.txtAvMk.TabIndex = 6
@@ -175,7 +168,7 @@ Partial Class Form1
         '
         'txtPhone
         '
-        Me.txtPhone.Location = New System.Drawing.Point(36, 131)
+        Me.txtPhone.Location = New System.Drawing.Point(251, 131)
         Me.txtPhone.Mask = "(999) 000-0000"
         Me.txtPhone.Name = "txtPhone"
         Me.txtPhone.Size = New System.Drawing.Size(100, 20)
@@ -184,17 +177,28 @@ Partial Class Form1
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(36, 115)
+        Me.Label7.Location = New System.Drawing.Point(248, 115)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(78, 13)
         Me.Label7.TabIndex = 18
         Me.Label7.Text = "Phone Number"
+        '
+        'txtDOB
+        '
+        Me.txtDOB.Location = New System.Drawing.Point(248, 83)
+        Me.txtDOB.MaxDate = New Date(2020, 11, 9, 0, 0, 0, 0)
+        Me.txtDOB.MinDate = New Date(1960, 1, 1, 0, 0, 0, 0)
+        Me.txtDOB.Name = "txtDOB"
+        Me.txtDOB.Size = New System.Drawing.Size(200, 20)
+        Me.txtDOB.TabIndex = 19
+        Me.txtDOB.Value = New Date(2003, 1, 1, 0, 0, 0, 0)
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(611, 391)
+        Me.Controls.Add(Me.txtDOB)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.txtPhone)
         Me.Controls.Add(Me.chkPaid)
@@ -206,14 +210,13 @@ Partial Class Form1
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.txtGender)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.txtDOB)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.txtLastName)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtFirstName)
         Me.Name = "Form1"
-        Me.Text = "v1.7.1"
+        Me.Text = "v1.7.2"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -225,7 +228,6 @@ Partial Class Form1
     Friend WithEvents Label3 As Label
     Friend WithEvents txtLastName As TextBox
     Friend WithEvents Label4 As Label
-    Friend WithEvents txtDOB As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents txtGender As TextBox
     Friend WithEvents Label6 As Label
@@ -239,4 +241,5 @@ Partial Class Form1
     Friend WithEvents chkPaid As CheckBox
     Friend WithEvents txtPhone As MaskedTextBox
     Friend WithEvents Label7 As Label
+    Friend WithEvents txtDOB As DateTimePicker
 End Class
